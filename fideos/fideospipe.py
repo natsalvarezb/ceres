@@ -1207,11 +1207,15 @@ for fsim in new_list:
 
 	    known_coords = False
 	
-	    ra = hd['RA']
-	    dec = hd['DEC']
-	    #try:  
+	    #ra = hd['RA']
+	    #dec = hd['DEC']
+	    try:  
+		ra = hd['RA']
+	        dec = hd['DEC']
 	    	#sp,ra,dec,known_coords = GLOBALutils.simbad_coords(obname,mjd)
-	   # except:
+	    except:
+		ra = hd['RA']
+	        dec = hd['DEC']
 		#ra,dec = -999,-999
 	   # ras,decs = ra,dec
 	   # ra2,dec2 = GLOBALutils.getcoords(obname,mjd,filen=reffile)
