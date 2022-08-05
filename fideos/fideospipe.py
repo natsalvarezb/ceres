@@ -1210,20 +1210,20 @@ for fsim in new_list:
 	    #ra = hd['RA']
 	    #dec = hd['DEC']
 	    try:  
-		ra = hd['RA']
-	        dec = hd['DEC']
-	    	#sp,ra,dec,known_coords = GLOBALutils.simbad_coords(obname,mjd)
+		#ra = hd['RA']
+	        #dec = hd['DEC']
+	    	sp,ra,dec,known_coords = GLOBALutils.simbad_coords(obname,mjd)
 	    except:
-		ra = hd['RA']
-	        dec = hd['DEC']
-		#ra,dec = -999,-999
-	   # ras,decs = ra,dec
-	   # ra2,dec2 = GLOBALutils.getcoords(obname,mjd,filen=reffile)
-	   # if ra2 !=0 and dec2 != 0:
-	#	ra = ra2
-	#	dec = dec2
-	  #  else:
-		#print '\t\tUsing the coordinates found in the image header.'
+		#ra = hd['RA']
+	        #dec = hd['DEC']
+		ra,dec = -999,-999
+	    ras,decs = ra,dec
+	    ra2,dec2 = GLOBALutils.getcoords(obname,mjd,filen=reffile)
+	    if ra2 !=0 and dec2 != 0:
+		ra = ra2
+		dec = dec2
+	    else:
+		print '\t\tUsing the coordinates found in the image header.'
 
 	    airmass = fideosutils.get_airmass(ra,dec,latitude,longitude,altitude,hd['DATE-OBS'].replace('T',' '))
 
